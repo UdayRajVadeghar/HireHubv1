@@ -70,7 +70,7 @@ function Header({ user, profileInfo }) {
 
   return (
     <div>
-      <header className="flex h-16 w-full shrink-0 items-center bg-gray-200 p-10 rounded-lg">
+      <header className="flex h-16 w-full shrink-0 items-center">
         <Sheet>
           <SheetTrigger asChild>
             <Button className="lg:hidden">
