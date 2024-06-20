@@ -1,6 +1,5 @@
 import { fetchProfileAction } from "@/actions";
 import HomepageButtonControls from "@/components/homepage-button-controls";
-import { Button } from "@/components/ui/button";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
@@ -25,12 +24,13 @@ async function Home() {
                   </span>
                 </span>
                 <h1 className="text-3xl dark:text-white mt-5 lg:text-7xl text-black font-extrabold">
-                  Build your best job community starting from here.
+                    Kickstart Your Ultimate Job Network Here.
                 </h1>
                 <div className="w-full mt-6 flex items-center text-white justify-start gap-2">
                   <HomepageButtonControls
                     user={JSON.parse(JSON.stringify(user))}
                     profileInfo={profileInfo}
+                    //profile
                   />
                 </div>
               </div>

@@ -4,10 +4,20 @@ import { UserButton } from "@clerk/nextjs";
 import { AlignJustify, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
 function Header({ user, profileInfo }) {
+  
+  const [activeLink, setActiveLink] = useState(null);
+
+
+  //should implement handleClick
+  const handleClick = (path) => {
+    sessionStorage.removeItem("filterParams");
+    setActiveLink(path);
+  };
   const { theme, setTheme } = useTheme();
 
   const menuItems = [
@@ -60,7 +70,7 @@ function Header({ user, profileInfo }) {
 
   return (
     <div>
-      <header className="flex h-16 w-full shrink-0 items-center">
+      <header className="flex h-16 w-full shrink-0 items-center bg-gray-200 p-10 rounded-lg">
         <Sheet>
           <SheetTrigger asChild>
             <Button className="lg:hidden">
@@ -70,7 +80,7 @@ function Header({ user, profileInfo }) {
           </SheetTrigger>
           <SheetContent side="left">
             <Link className="mr-6 hidden lg:flex" href={"#"}>
-              <h3>JOBSCO</h3>
+              <h3>HireHub</h3>
             </Link>
             <div className="grid gap-2 py-6">
               {menuItems.map((menuItem) =>
@@ -94,16 +104,17 @@ function Header({ user, profileInfo }) {
           </SheetContent>
         </Sheet>
         <Link className="hidden font-bold text-3xl lg:flex mr-6" href={"/"}>
-          JOBSCO
+          HireHub
         </Link>
         <nav className="ml-auto hidden lg:flex gap-6 items-center">
           {menuItems.map((menuItem) =>
             menuItem.show ? (
               <Link
                 href={menuItem.path}
-                onClick={() => sessionStorage.removeItem("filterParams")}
-                className="group inline-flex h-9 w-max items-center rounded-md  px-4 py-2 text-sm font-medium"
+                onClick={() => sessionStorage.removeItem("filterParams")} 
+                className="group inline-flex h-9 w-max items-center rounded-md  px-4 py-2 text-lg font-medium"
                 key={menuItem.label}
+                
               >
                 {menuItem.label}
               </Link>
