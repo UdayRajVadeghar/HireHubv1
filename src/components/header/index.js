@@ -27,6 +27,11 @@ function Header({ user, profileInfo }) {
       show: true,
     },
     {
+      label: "About",
+      path: "/about",
+      show: true,
+    },
+    {
       label: "Feed",
       path: "/feed",
       show: profileInfo,
@@ -103,7 +108,7 @@ function Header({ user, profileInfo }) {
             </div>
           </SheetContent>
         </Sheet>
-        <Link className="hidden font-bold text-3xl lg:flex mr-6" href={"/"}>
+        <Link className="hidden font-bold text-4xl lg:flex mr-6" href={"/"}>
           HireHub
         </Link>
         <nav className="ml-auto hidden lg:flex gap-6 items-center">
@@ -112,7 +117,7 @@ function Header({ user, profileInfo }) {
               <Link
                 href={menuItem.path}
                 onClick={() => sessionStorage.removeItem("filterParams")} 
-                className="group inline-flex h-9 w-max items-center rounded-md  px-4 py-2 text-lg font-medium"
+                className="group inline-flex h-9 w-max items-center rounded-md  px-4 py-2 text-m font-medium"
                 key={menuItem.label}
                 
               >
