@@ -1,17 +1,16 @@
 "use client";
 
-import { membershipPlans } from "@/utils";
-import CommonCard from "../common-card";
-import JobIcon from "../job-icon";
-import { Button } from "../ui/button";
 import {
   createPriceIdAction,
   createStripePaymentAction,
   updateProfileAction,
 } from "@/actions";
+import { membershipPlans } from "@/utils";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import CommonCard from "../common-card";
+import { Button } from "../ui/button";
 
 const stripePromise = loadStripe(
   "pk_test_51NMv6ZSC6E6fnyMeRIEb9oEXdGRCC9yrBTT4xWHgcjWOuFcqFiAHErvaS50K1hl5t5WJXVGfLLWxvb705IWJhA3300yCcrMnlM"
@@ -107,13 +106,15 @@ function Membership({ profileInfo }) {
               <CommonCard
                 icon={
                   <div className="flex justify-between">
-                    <div>
-                      <JobIcon />
-                    </div>
+                    <img 
+                    src="https://utfs.io/f/4473f8d7-f26a-4d5f-8185-dfa4da7c3306-duz8gl.png"
+                    width={40}
+                    />
+
                     <h1 className="font-bold text-2xl">{plan.heading}</h1>
                   </div>
                 }
-                title={`$ ${plan.price} /yr`}
+                title={`₹ ${plan.price} /year`}
                 description={plan.type}
                 footerContent={
                   profileInfo?.memberShipType === "enterprise" ||
@@ -136,6 +137,28 @@ function Membership({ profileInfo }) {
             ))}
           </div>
         </div>
+      </div>
+      <div>
+        <div className="text-3xl font-bold">
+        Why Choose Our Job Membership Plans?
+        </div>
+        <ul className="mt-8 text-xl lg:flex lg:gap-12">
+  <li className="py-2 lg:py-0">
+    Tailored Job Matches for your profile: Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
+  </li>
+  <li className="py-2 lg:py-0">
+    Exclusive Job Listings: Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
+  </li>
+  <li className="py-2 lg:py-0">
+    Career Development Resources: Gain access to premium resources like resume builders, interview prep, and career coaching.
+  </li>
+  <li className="py-2 lg:py-0">
+    Networking Opportunities: Connect with industry professionals and potential employers within our exclusive community.
+  </li>
+</ul>
+
+
+        
       </div>
     </div>
   );
