@@ -20,7 +20,7 @@ async function Home() {
                 <span className="flex space-x-2">
                   <span className="block w-14 mb-2 dark:border-white border-b-2 border-gray-700"></span>
                   <span className="font-medium dark:text-white text-gray-600">
-                    One Stop Solution to Find Jobs
+                   Your Essential Resource for Finding Jobs
                   </span>
                 </span>
                 <h1 className="text-3xl dark:text-white mt-5 lg:text-7xl text-black font-extrabold">
@@ -37,9 +37,9 @@ async function Home() {
             </section>
             <section className="relative w-full lg:w-[50%] flex items-center justify-end">
               <img
-                src="https://utfs.io/f/4c9f7186-8ad0-4680-aece-a5abea608705-k6t10e.png"
+                src="https://utfs.io/f/c3a4f4ad-9886-4310-9bfe-b6a785a70716-nd5t6.webp"
                 alt="Hero"
-                className="h-full w-full object-contain z-10"
+                className="h-full w-full object-contain z-10 rounded-lg"
               />
             </section>
           </div>

@@ -2,7 +2,7 @@
 const page = () => {
   return (
     <div>
-      About Page
+      About page
     </div>
   )
 }
