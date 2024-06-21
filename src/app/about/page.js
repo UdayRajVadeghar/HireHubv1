@@ -1,8 +1,8 @@
 
 
 
-
-const About = () => {  
+const About = () => {
+  
   return (
     <div className='mb-10 pb-4'>
       <div className='lg:grid md:grid grid-cols-3 grid-rows-2 gap-2 p-10 mx-10 place-items-center'>
@@ -84,6 +84,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
