@@ -13,7 +13,7 @@ import CommonCard from "../common-card";
 import { Button } from "../ui/button";
 
 const stripePromise = loadStripe(
-  "pk_test_51NMv6ZSC6E6fnyMeRIEb9oEXdGRCC9yrBTT4xWHgcjWOuFcqFiAHErvaS50K1hl5t5WJXVGfLLWxvb705IWJhA3300yCcrMnlM"
+  "pk_test_51PSzU1FQzSEBZEvhKrueFwePucJh7w1AwEMcF5EGo47aoU3zw6N5oYbn0ZHozIlxZBsfWO6Im1zPMf6a5v3fY8gK00h8zyj3Z6"
 );
 
 function Membership({ profileInfo }) {
@@ -140,21 +140,25 @@ function Membership({ profileInfo }) {
       </div>
       <div>
         <div className="text-3xl font-bold">
-        Why Choose Our Job Membership Plans?
+        Membership Perks
         </div>
         <ul className="mt-8 text-xl lg:flex lg:gap-12">
-  <li className="py-2 lg:py-0">
-    Tailored Job Matches for your profile: Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
+        <li className="py-2 lg:py-0">
+  <span className="font-bold">Apply more than two jobs:</span> Connect with industry professionals and potential employers within our exclusive community.
   </li>
   <li className="py-2 lg:py-0">
-    Exclusive Job Listings: Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
+    <span className="font-bold">Tailored Job Matches for your profile:</span> Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
   </li>
   <li className="py-2 lg:py-0">
-    Career Development Resources: Gain access to premium resources like resume builders, interview prep, and career coaching.
+  <span className="font-bold">Exclusive Job Listings:</span>Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
   </li>
   <li className="py-2 lg:py-0">
-    Networking Opportunities: Connect with industry professionals and potential employers within our exclusive community.
+  <span className="font-bold">Career Development Resources:</span> Gain access to premium resources like resume builders, interview prep, and career coaching.
   </li>
+  <li className="py-2 lg:py-0">
+  <span className="font-bold">Networking Opportunities:</span> Connect with industry professionals and potential employers within our exclusive community.
+  </li>
+  
 </ul>
 
 

@@ -258,12 +258,12 @@ export const membershipPlans = [
   },
   {
     heading: "Silver Tier",
-    price: 1000,
+    price: 500,
     type: "teams",
   },
   {
     heading: "Gold Tier",
-    price: 5000,
+    price: 1050,
     type: "enterprise",
   },
 ];
