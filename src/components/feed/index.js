@@ -1,14 +1,14 @@
 "use client";
 
+import { createFeedPostAction, updateFeedPostAction } from "@/actions";
+import { createClient } from "@supabase/supabase-js";
+import { CirclePlus, Heart } from "lucide-react";
 import { Fragment, useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
-import { CirclePlus, Heart } from "lucide-react";
 import { Input } from "../ui/input";
-import { createClient } from "@supabase/supabase-js";
-import { createFeedPostAction, updateFeedPostAction } from "@/actions";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
 
 const supabaseClient = createClient(
   "https://ymsijpnegskkoiuerthi.supabase.co",
@@ -185,7 +185,7 @@ function Feed({ user, profileInfo, allFeedPosts }) {
           />
 
           <div className="flex gap-5 items-center justify-between">
-            <Label for="imageURL">
+            <Label htmlFor="imageURL">
               <CirclePlus />
               <Input
                 onChange={handleFileOnChange}
