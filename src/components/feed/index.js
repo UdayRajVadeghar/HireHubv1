@@ -11,8 +11,8 @@ import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
 const supabaseClient = createClient(
-  "https://ymsijpnegskkoiuerthi.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inltc2lqcG5lZ3Nra29pdWVydGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyMzYzNDYsImV4cCI6MjAyOTgxMjM0Nn0.PM7Nr9qTZFEJsf62eHgkFXKGPqt0gfMdFN6SOJjCP6M"
+  "https://ateaxfooiijjqszouufm.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0ZWF4Zm9vaWlqanFzem91dWZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTkwMzgyMDEsImV4cCI6MjAzNDYxNDIwMX0.-8KTG_QGpSw0XnAyjpOCK-KFEvVvbOSKXFuYqWxkScs"
 );
 
 function Feed({ user, profileInfo, allFeedPosts }) {
@@ -44,7 +44,7 @@ function Feed({ user, profileInfo, allFeedPosts }) {
 
   async function handleUploadImageToSupabase() {
     const { data, error } = await supabaseClient.storage
-      .from("job-board-public")
+      .from("images")
       .upload(`/public/${imageData?.name}`, imageData, {
         cacheControl: "3600",
         upsert: false,
