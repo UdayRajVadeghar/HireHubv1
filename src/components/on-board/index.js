@@ -120,7 +120,7 @@ function OnBoard() {
             formData={candidateFormData}
             setFormData={setCandidateFormData}
             formControls={candidateOnboardFormControls}
-            buttonText={"Onboard as candidate"}
+            buttonText={"Onboard as a Candidate"}
             handleFileChange={handleFileChange}
             isBtnDisabled={!handleCandidateFormValid()}
           />
@@ -128,7 +128,7 @@ function OnBoard() {
         <TabsContent value="recruiter">
           <CommonForm
             formControls={recruiterOnboardFormControls}
-            buttonText={"Onboard as recruiter"}
+            buttonText={"Onboard as a Recruiter"}
             formData={recruiterFormData}
             setFormData={setRecruiterFormData}
             isBtnDisabled={!handleRecuiterFormValid()}

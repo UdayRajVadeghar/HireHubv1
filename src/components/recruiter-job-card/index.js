@@ -3,7 +3,6 @@
 import { useState } from "react";
 import CommonCard from "../common-card";
 import JobApplicants from "../job-applicants";
-import JobIcon from "../job-icon";
 import { Button } from "../ui/button";
 
 function RecruiterJobCard({ jobItem, jobApplications }) {
@@ -17,8 +16,9 @@ function RecruiterJobCard({ jobItem, jobApplications }) {
   return (
     <div>
       <CommonCard
-        icon={<JobIcon />}
+        icon={""}
         title={jobItem?.title}
+        description={"Job Id: " + jobItem?._id}
         footerContent={
           <Button
             onClick={() => setShowApplicantsDrawer(true)}

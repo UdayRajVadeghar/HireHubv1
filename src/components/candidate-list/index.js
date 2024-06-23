@@ -9,9 +9,10 @@ import { Fragment } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
 
+
 const supabaseClient = createClient(
-  "https://ymsijpnegskkoiuerthi.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inltc2lqcG5lZ3Nra29pdWVydGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyMzYzNDYsImV4cCI6MjAyOTgxMjM0Nn0.PM7Nr9qTZFEJsf62eHgkFXKGPqt0gfMdFN6SOJjCP6M"
+  "https://ateaxfooiijjqszouufm.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0ZWF4Zm9vaWlqanFzem91dWZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTkwMzgyMDEsImV4cCI6MjAzNDYxNDIwMX0.-8KTG_QGpSw0XnAyjpOCK-KFEvVvbOSKXFuYqWxkScs"
 );
 
 function CandidateList({
@@ -53,10 +54,10 @@ function CandidateList({
     );
     const jobApplicantsToUpdate = {
       ...cpyJobApplicants[indexOfCurrentJobApplicant],
-      status:
-        cpyJobApplicants[indexOfCurrentJobApplicant].status.concat(
-          getCurrentStatus
-        ),
+      status: cpyJobApplicants[indexOfCurrentJobApplicant].status.concat(
+        getCurrentStatus
+      ),
+      
     };
 
     console.log(jobApplicantsToUpdate, "jobApplicantsToUpdate");
@@ -67,10 +68,13 @@ function CandidateList({
 
   return (
     <Fragment>
-      <div className="grid grid-cols-1 gap-3 p-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 p-10 md:grid-cols-2 lg:grid-cols-3 ">
         {jobApplications && jobApplications.length > 0
           ? jobApplications.map((jobApplicantItem) => (
-              <div className="bg-white shadow-lg w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4">
+              <div
+                key={jobApplicantItem?.candidateUserID}
+                className="bg-white shadow-lg w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4 bg-gray-2 00"
+              >
                 <div className="px-4 my-6 flex justify-between items-center">
                   <h3 className="text-lg font-bold dark:text-black">
                     {jobApplicantItem?.name}
@@ -81,7 +85,7 @@ function CandidateList({
                         jobApplicantItem?.candidateUserID
                       )
                     }
-                    className="dark:bg-[#fffa27]  flex h-11 items-center justify-center px-5"
+                    className="dark:bg-blue-300 flex h-11 items-center justify-center px-5"
                   >
                     View Profile
                   </Button>
@@ -99,64 +103,72 @@ function CandidateList({
       >
         <DialogContent>
           <div>
-            <h1 className="text-2xl font-bold dark:text-white text-black">
-              {currentCandidateDetails?.candidateInfo?.name},{" "}
-              {currentCandidateDetails?.email}
+            <h1 className="text-lg font-bold dark:text-white text-black">
+              Candidate Name:{" "}
+              <span className="font-normal">
+                {currentCandidateDetails?.candidateInfo?.name}
+              </span>
             </h1>
-            <p className="text-xl font-medium dark:text-white text-black">
-              {currentCandidateDetails?.candidateInfo?.currentCompany}
+            <h1 className="text-lg font-bold dark:text-white text-black">
+              Email:{" "}
+              <span className="font-normal">
+                {currentCandidateDetails?.email}
+              </span>
+            </h1>
+            <p className="text-lg font-bold dark:text-white text-black">
+              Current Company:{" "}
+              <span className="font-normal">
+                {currentCandidateDetails?.candidateInfo?.currentCompany},
+                {currentCandidateDetails?.candidateInfo?.currentJobLocation}
+              </span>
             </p>
-            <p className="text-sm font-normal dark:text-white text-black">
-              {currentCandidateDetails?.candidateInfo?.currentJobLocation}
+            <p className="text-lg font-bold dark:text-white text-black">
+              Total Experience:{" "}
+              <span className="font-normal">
+                {currentCandidateDetails?.candidateInfo?.totalExperience} Years
+              </span>
             </p>
-            <p className="dark:text-white">
-              Total Experience:
-              {currentCandidateDetails?.candidateInfo?.totalExperience} Years
+            <p className="text-lg font-bold dark:text-white text-black">
+              Salary:{" "}
+              <span className="font-normal">
+                {currentCandidateDetails?.candidateInfo?.currentSalary} LPA
+              </span>
             </p>
-            <p className="dark:text-white">
-              Salary: {currentCandidateDetails?.candidateInfo?.currentSalary}{" "}
-              LPA
-            </p>
-            <p className="dark:text-white">
+            <p className="text-lg font-bold dark:text-white text-black">
               Notice Period:{" "}
-              {currentCandidateDetails?.candidateInfo?.noticePeriod} Days
+              <span className="font-normal">
+                {currentCandidateDetails?.candidateInfo?.noticePeriod} Days
+              </span>
             </p>
-            <div className="flex items-center gap-4 mt-6">
-              <h1 className="dark:text-white">Previous Companies</h1>
-              <div className="flex flex-wrap items-center gap-4 mt-6">
-                {currentCandidateDetails?.candidateInfo?.previousCompanies
+            <div className="font-bold text-lg">Skill Set: </div>
+              <div className="border-2">
+                <div className="flex flex-wrap gap-4 ">
+                {currentCandidateDetails?.candidateInfo?.skills
                   .split(",")
-                  .map((skillItem) => (
-                    <div className="w-[100px] dark:bg-white flex justify-center items-center h-[35px] bg-black rounded-[4px]">
-                      <h2 className="text-[13px]  dark:text-black font-medium text-white">
-                        {skillItem}
+                  .map((skill) => (
+                    <div
+                      key={skill}
+                      className=""
+                    >
+                      <h2 className=" ">
+                        {skill},
                       </h2>
-                    </div>
+                </div>
                   ))}
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 mt-6">
-              {currentCandidateDetails?.candidateInfo?.skills
-                .split(",")
-                .map((skillItem) => (
-                  <div className="w-[100px] dark:bg-white flex justify-center items-center h-[35px] bg-black rounded-[4px]">
-                    <h2 className="text-[13px] dark:text-black font-medium text-white">
-                      {skillItem}
-                    </h2>
-                  </div>
-                ))}
-            </div>
           </div>
-          <div className="flex gap-3">
+          <div className="gap-3 pt-4">
             <Button
               onClick={handlePreviewResume}
-              className=" flex h-11 items-center justify-center px-5"
+              className="h-11 items-center justify-center px-5 bg-blue-500"
             >
-              Resume
+              View Resume
             </Button>
+            <div className="flex pt-5 gap-3 justify-between">
             <Button
               onClick={() => handleUpdateJobStatus("selected")}
-              className=" disabled:opacity-65 flex h-11 items-center justify-center px-5"
+              className="disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-green-500"
               disabled={
                 jobApplications
                   .find(
@@ -185,7 +197,7 @@ function CandidateList({
             </Button>
             <Button
               onClick={() => handleUpdateJobStatus("rejected")}
-              className=" disabled:opacity-65 flex h-11 items-center justify-center px-5"
+              className="disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-red-500"
               disabled={
                 jobApplications
                   .find(
@@ -212,6 +224,7 @@ function CandidateList({
                 ? "Rejected"
                 : "Reject"}
             </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>

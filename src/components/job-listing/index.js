@@ -1,9 +1,12 @@
 "use client";
 
 import { filterMenuDataArray, formUrlQuery } from "@/utils";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import CandidateJobCard from "../candidate-job-card";
 import PostNewJob from "../post-new-job";
 import RecruiterJobCard from "../recruiter-job-card";
+import { Label } from "../ui/label";
 import {
   Menubar,
   MenubarContent,
@@ -11,9 +14,6 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../ui/menubar";
-import { Label } from "../ui/label";
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 
 function JobListing({
   user,
@@ -79,7 +79,7 @@ function JobListing({
           <h1 className="text-4xl dark:text-white font-bold tracking-tight text-gray-900">
             {profileInfo?.role === "candidate"
               ? "Explore All Jobs"
-              : "Jobs Dashboard"}
+              : "Job Dashboard"}
           </h1>
           <div className="flex items-center">
             {profileInfo?.role === "candidate" ? (
@@ -133,7 +133,7 @@ function JobListing({
                         profileInfo?.role === "candidate" ? (
                           <CandidateJobCard
                             profileInfo={profileInfo}
-                            jobItem={jobItem}
+                            jobItem={jobItem} 
                             jobApplications={jobApplications}
                           />
                         ) : (

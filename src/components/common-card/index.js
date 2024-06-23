@@ -12,7 +12,7 @@ function CommonCard({ title, icon, description, footerContent }) {
       <CardHeader className="p-0">
         {icon ? icon : null}
         {title ? (
-          <CardTitle className="text-xl max-w-[250px] text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-gray-950">
+          <CardTitle className="text-xl max-w-[250px] text-ellipsis overflow-hidden whitespace-nowrap text-gray-950 font-bold">
             {title}
           </CardTitle>
         ) : null}
