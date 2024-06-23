@@ -1,8 +1,6 @@
 "use client";
+import { createProfileAction } from "@/actions";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TabsContent } from "@radix-ui/react-tabs";
-import { useEffect, useState } from "react";
-import CommonForm from "../common-form";
 import {
   candidateOnboardFormControls,
   initialCandidateFormData,
@@ -10,12 +8,14 @@ import {
   recruiterOnboardFormControls,
 } from "@/utils";
 import { useUser } from "@clerk/nextjs";
-import { createProfileAction } from "@/actions";
+import { TabsContent } from "@radix-ui/react-tabs";
 import { createClient } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
+import CommonForm from "../common-form";
 
 const supabaseClient = createClient(
-  "https://ymsijpnegskkoiuerthi.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inltc2lqcG5lZ3Nra29pdWVydGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyMzYzNDYsImV4cCI6MjAyOTgxMjM0Nn0.PM7Nr9qTZFEJsf62eHgkFXKGPqt0gfMdFN6SOJjCP6M"
+  "https://ateaxfooiijjqszouufm.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0ZWF4Zm9vaWlqanFzem91dWZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTkwMzgyMDEsImV4cCI6MjAzNDYxNDIwMX0.-8KTG_QGpSw0XnAyjpOCK-KFEvVvbOSKXFuYqWxkScs"
 );
 
 function OnBoard() {
@@ -38,7 +38,7 @@ function OnBoard() {
 
   async function handleUploadPdfToSupabase() {
     const { data, error } = await supabaseClient.storage
-      .from("job-board-public")
+      .from("hirehub-public")
       .upload(`/public/${file.name}`, file, {
         cacheControl: "3600",
         upsert: false,

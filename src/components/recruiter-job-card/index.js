@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import CommonCard from "../common-card";
+import JobApplicants from "../job-applicants";
 import JobIcon from "../job-icon";
 import { Button } from "../ui/button";
-import JobApplicants from "../job-applicants";
 
 function RecruiterJobCard({ jobItem, jobApplications }) {
   const [showApplicantsDrawer, setShowApplicantsDrawer] = useState(false);

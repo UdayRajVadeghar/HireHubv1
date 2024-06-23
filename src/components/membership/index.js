@@ -59,7 +59,7 @@ function Membership({ profileInfo }) {
         memberShipStartDate: new Date().toString(),
         memberShipEndDate: new Date(
           new Date().getFullYear() +
-            fetchCurrentPlanFromSessionStroage?.type ===
+            fetchCurrentPlanFromSessionStorage?.type ===
           "basic"
             ? 1
             : fetchCurrentPlanFromSessionStroage?.plan === "teams"

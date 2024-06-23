@@ -6,6 +6,7 @@ const About = () => {
   
   return (
     <>
+  
     <Infocards />
     <SubscriptionCard />
     </>

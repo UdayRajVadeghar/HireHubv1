@@ -1,13 +1,13 @@
 "use client";
 
-import { Fragment } from "react";
-import { Button } from "../ui/button";
-import { Dialog, DialogContent, DialogFooter } from "../ui/dialog";
 import {
   getCandidateDetailsByIDAction,
   updateJobApplicationAction,
 } from "@/actions";
 import { createClient } from "@supabase/supabase-js";
+import { Fragment } from "react";
+import { Button } from "../ui/button";
+import { Dialog, DialogContent } from "../ui/dialog";
 
 const supabaseClient = createClient(
   "https://ymsijpnegskkoiuerthi.supabase.co",
@@ -34,7 +34,7 @@ function CandidateList({
 
   function handlePreviewResume() {
     const { data } = supabaseClient.storage
-      .from("job-board-public")
+      .from("hirehub-public")
       .getPublicUrl(currentCandidateDetails?.candidateInfo?.resume);
 
     const a = document.createElement("a");
