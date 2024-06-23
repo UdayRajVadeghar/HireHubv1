@@ -6,7 +6,9 @@ const About = () => {
   
   return (
     <>
-  
+    <div className="text-5xl font-bold mt-10">
+      Still in Developement-------------------
+    </div>
     <Infocards />
     <SubscriptionCard />
     </>
