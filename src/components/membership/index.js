@@ -103,7 +103,11 @@ function Membership({ profileInfo }) {
         <div className="container mx-auto p-0 space-y-8">
           <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {membershipPlans.map((plan, index) => (
+              
               <CommonCard
+                key={plan.type}
+              
+              
                 icon={
                   <div className="flex justify-between">
                     <img 
@@ -144,22 +148,22 @@ function Membership({ profileInfo }) {
         </div>
         <ul className="mt-8 text-xl lg:flex lg:gap-12">
         <li className="py-2 lg:py-0">
-  <span className="font-bold">Apply more than two jobs:</span> Connect with industry professionals and potential employers within our exclusive community.
-  </li>
-  <li className="py-2 lg:py-0">
-    <span className="font-bold">Tailored Job Matches for your profile:</span> Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
-  </li>
-  <li className="py-2 lg:py-0">
-  <span className="font-bold">Exclusive Job Listings:</span>Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
-  </li>
-  <li className="py-2 lg:py-0">
-  <span className="font-bold">Career Development Resources:</span> Gain access to premium resources like resume builders, interview prep, and career coaching.
-  </li>
-  <li className="py-2 lg:py-0">
-  <span className="font-bold">Networking Opportunities:</span> Connect with industry professionals and potential employers within our exclusive community.
-  </li>
-  
-</ul>
+          <span className="font-bold">Apply more than two jobs:</span> Connect with industry professionals and potential employers within our exclusive community.
+          </li>
+          <li className="py-2 lg:py-0">
+            <span className="font-bold">Tailored Job Matches for your profile:</span> Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
+          </li>
+          <li className="py-2 lg:py-0">
+          <span className="font-bold">Exclusive Job Listings:</span>Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
+          </li>
+          <li className="py-2 lg:py-0">
+          <span className="font-bold">Career Development Resources:</span> Gain access to premium resources like resume builders, interview prep, and career coaching.
+          </li>
+          <li className="py-2 lg:py-0">
+          <span className="font-bold">Networking Opportunities:</span> Connect with industry professionals and potential employers within our exclusive community.
+          </li>
+          
+        </ul>
 
 
         

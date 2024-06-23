@@ -185,7 +185,7 @@ function Feed({ user, profileInfo, allFeedPosts }) {
           />
 
           <div className="flex gap-5 items-center justify-between">
-            <Label for="imageURL">
+            <Label htmlFor="imageURL">
               <CirclePlus />
               <Input
                 onChange={handleFileOnChange}
