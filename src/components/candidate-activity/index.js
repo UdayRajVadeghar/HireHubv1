@@ -1,7 +1,6 @@
 "use client";
 
 import CommonCard from "../common-card";
-import JobIcon from "../job-icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 function CandidateActivity({ jobList, jobApplicants }) {
@@ -48,7 +47,6 @@ function CandidateActivity({ jobList, jobApplicants }) {
                     )
                     .map((finalFilteredItem) => (
                       <CommonCard
-                        icon={<JobIcon />}
                         title={finalFilteredItem?.title}
                         description={finalFilteredItem?.companyName}
                       />

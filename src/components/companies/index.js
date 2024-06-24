@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import CommonCard from "../common-card";
-import JobIcon from "../job-icon";
 import { Button } from "../ui/button";
 
 function Companies({ jobsList }) {
@@ -48,14 +47,13 @@ function Companies({ jobsList }) {
                 createUniqueSetOfCompanies.length > 0 ? (
                   createUniqueSetOfCompanies.map((companyName) => (
                     <CommonCard
-                      icon={<JobIcon />}
                       title={companyName}
                       footerContent={
                         <Button
                           onClick={() =>
                             handleFilterJobsByCompanyName(companyName)
                           }
-                          className="dark:bg-[#fffa27] h-11 flex items-center justify-center px-5"
+                          className="bg-red-600 h-11 flex items-center justify-center px-5"
                         >
                           See Jobs
                         </Button>
@@ -63,7 +61,7 @@ function Companies({ jobsList }) {
                     />
                   ))
                 ) : (
-                  <h1>No Companies present!</h1>
+                  <h1>No Companies yet!</h1>
                 )}
               </div>
             </div>

@@ -26,6 +26,7 @@ async function Home() {
                 <h1 className="text-3xl dark:text-white mt-5 lg:text-7xl text-black font-extrabold">
                     Kickstart Your Ultimate Job Network Here.
                 </h1>
+            
                 <div className="w-full mt-6 flex items-center text-white justify-start gap-2">
                   <HomepageButtonControls
                     user={JSON.parse(JSON.stringify(user))}
@@ -33,6 +34,7 @@ async function Home() {
                     //profile
                   />
                 </div>
+                
               </div>
             </section>
             <section className="relative w-full lg:w-[50%] flex items-center justify-end">
@@ -43,8 +45,11 @@ async function Home() {
               />
             </section>
           </div>
+          
         </div>
+        
       </section>
+      
     </Fragment>
   );
 }

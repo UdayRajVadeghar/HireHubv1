@@ -108,9 +108,9 @@ function Membership({ profileInfo }) {
               
                 key={plan.type}
                 icon={
-                  <div className="flex justify-between">
+                  <div className="flex justify-between dark:text-black">
                     <img 
-                    src="https://utfs.io/f/7d6df133-6ea5-4c70-a7ff-a0a93cdd594d-ehwniy.webp"
+                    src="https://utfs.io/f/67134cc3-f42f-4243-be46-c24460e51fc9-r5otpm.webp"
                     width={100}
                     />
 
@@ -127,7 +127,7 @@ function Membership({ profileInfo }) {
                   index < 2 ? null : (
                     <Button
                       onClick={() => handlePayment(plan)}
-                      className="disabled:opacity-65  dark:bg-teal-300  bg-yellow-300 flex h-11 items-center justify-center px-5 text-black"
+                      className="disabled:opacity-65  bg-yellow-300 flex h-11 items-center justify-center px-5 text-black"
                     >
                       {profileInfo?.memberShipType === "basic" ||
                       profileInfo?.memberShipType === "teams"

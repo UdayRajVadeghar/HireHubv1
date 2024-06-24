@@ -23,7 +23,7 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
     if (!profileInfo?.isPremiumUser && jobApplications.length >= 3) {
       
       toast({
-        variant: "",
+        variant: "destructive",
         title: "You can apply max 2 jobs.",
         description: "Please opt for membership to apply for more jobs",
       });
@@ -31,7 +31,7 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
     }
     else{
       toast({
-        variant: "destructive",
+        variant: "",
         title: "Thank you for Applying.",
         description: "We will get back to you soon!",
       });
@@ -64,7 +64,7 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
           footerContent={
             <Button
               onClick={() => setShowJobDetailsDrawer(true)}
-              className=" bg-sky-400 flex h-11 items-center justify-center px-5"
+              className=" bg-red-600 flex h-11 items-center justify-center px-5"
             >
               View Details
             </Button>
@@ -127,9 +127,9 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
           </h3>
           <div className="flex gap-4 mt-6">
             {jobItem?.skills.split(",").map((skillItem) => (
-              <div className="w-[100px] flex justify-center items-center h-[35px] dark:bg-white  bg-blue-500 rounded-[4px]">
+              <div className="w-[100px] flex justify-center items-center h-[35px] dark:bg-white   rounded-[4px]">
                 <h2 className="text-[13px] font-medium text-white">
-                  {"All the best :)"}
+                  {}
                 </h2>
               </div>
             ))}
