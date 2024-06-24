@@ -11,7 +11,6 @@ import { Fragment, useState } from "react";
 
 import { createJobApplicationAction } from "@/actions";
 import CommonCard from "../common-card";
-import JobIcon from "../job-icon";
 import { Button } from "../ui/button";
 import { useToast } from "../ui/use-toast";
 
@@ -60,13 +59,12 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
         onOpenChange={setShowJobDetailsDrawer}
       >
         <CommonCard
-          icon={<JobIcon />}
           title={jobItem?.title}
           description={jobItem?.companyName}
           footerContent={
             <Button
               onClick={() => setShowJobDetailsDrawer(true)}
-              className=" dark:bg-[#fffa27] flex h-11 items-center justify-center px-5"
+              className=" bg-sky-400 flex h-11 items-center justify-center px-5"
             >
               View Details
             </Button>
