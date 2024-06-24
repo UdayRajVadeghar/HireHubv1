@@ -110,8 +110,8 @@ function Membership({ profileInfo }) {
                 icon={
                   <div className="flex justify-between">
                     <img 
-                    src="https://utfs.io/f/4473f8d7-f26a-4d5f-8185-dfa4da7c3306-duz8gl.png"
-                    width={40}
+                    src="https://utfs.io/f/7d6df133-6ea5-4c70-a7ff-a0a93cdd594d-ehwniy.webp"
+                    width={100}
                     />
 
                     <h1 className="font-bold text-2xl">{plan.heading}</h1>
