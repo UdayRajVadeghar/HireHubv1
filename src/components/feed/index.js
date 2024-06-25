@@ -103,12 +103,12 @@ function Feed({ user, profileInfo, allFeedPosts }) {
       <div className="mx-auto max-w-7xl">
         <div className="flex items-baseline justify-between dark:border-white border-b pb-6 pt-24">
           <h1 className="dark:text-white text-4xl font-bold tracking-tight text-gray-900">
-            Explore Feed
+            Explore the Feed
           </h1>
           <div className="flex items-center">
             <Button
               onClick={() => setShowPostDialog(true)}
-              className="flex h-11 items-center justify-center px-5"
+              className="flex h-11 items-center justify-center px-5 bg-blue-500"
             >
               Add New Post
             </Button>

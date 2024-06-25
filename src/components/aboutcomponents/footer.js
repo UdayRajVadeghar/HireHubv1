@@ -1,19 +1,21 @@
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../assets/logo.webp';
+import Image from 'next/image';
 
-const FooterExtras = () => {
+const Footer = () => {
   return (
     <div>
       <div className='lg:flex pt-10 mt-10'>
         <div className='lg:w-1/3 p-4 flex-grow-0 flex-shrink-0 grid grid-rows-2'>
-          <button><img src={logo} className='p-4 w-40'></img></button>
+          <button>
+            <Image src="" alt="Logo" className='p-4 w-40' />
+          </button>
           <div className='flex pl-10'>
-            <FontAwesomeIcon icon={faGithub} className='pr-3'/>
-            <FontAwesomeIcon icon={faTwitter} /><br></br>
+            <FontAwesomeIcon icon={faGithub} className='pr-3' width={30} />
+            <FontAwesomeIcon icon={faTwitter} width={30} />
           </div>
         </div>
-        <div className='flex-grow p-4 lg:grid md:grid grid-cols-4 '>
+        <div className='flex-grow p-4 lg:grid md:grid grid-cols-4'>
           <div className='p-4'>
             <ul>
               <li className='p-2 font-bold'><button>About us</button></li>
@@ -40,7 +42,7 @@ const FooterExtras = () => {
           </div>
           <div className='p-4'>
             <ul>
-              <li className='p-2 font-bold'><button>Procuct</button></li>
+              <li className='p-2 font-bold'><button>Product</button></li>
               <li className='p-2'><button>Why RevenueCat?</button></li>
               <li className='p-2'><button>Integrations</button></li>
               <li className='p-2'><button>For Engineering Teams</button></li>
@@ -57,15 +59,13 @@ const FooterExtras = () => {
               <li className='p-2'><button>Terms and Conditions</button></li>
               <li className='p-2'><button>GDPR</button></li>
               <li className='p-2'><button>Fair Billing Policy</button></li>
-      
             </ul>
           </div>
         </div>
-      
       </div>
       <p className='pl-10'>©2022 RevenueCat</p>
     </div>
-  )
-}
+  );
+};
 
-export default FooterExtras
+export default Footer;

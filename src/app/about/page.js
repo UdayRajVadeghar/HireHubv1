@@ -1,4 +1,6 @@
 
+import Footer from "@/components/aboutcomponents/footer";
+import Infoband from "@/components/aboutcomponents/infoBar";
 import Infocards from "@/components/aboutcomponents/infocards";
 import SubscriptionCard from "@/components/aboutcomponents/subscriptionCard";
 
@@ -11,6 +13,8 @@ const About = () => {
     </div>
     <Infocards />
     <SubscriptionCard />
+    <Infoband />
+    <Footer />
     </>
     
   );

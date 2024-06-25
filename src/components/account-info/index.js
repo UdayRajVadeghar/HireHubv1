@@ -1,6 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
+
 import { updateProfileAction } from "@/actions";
 import {
   candidateOnboardFormControls,
@@ -10,18 +10,8 @@ import {
 } from "@/utils";
 import { useEffect, useState } from "react";
 import CommonForm from "../common-form";
-=======
-import {
-  candidateOnboardFormControls,
-  initialCandidateAccountFormData,
-  initialCandidateFormData,
-  initialRecruiterFormData,
-  recruiterOnboardFormControls,
-} from "@/utils";
-import { useEffect, useState } from "react";
-import CommonForm from "../common-form";
-import { updateProfileAction } from "@/actions";
->>>>>>> origin/main
+
+
 
 function AccountInfo({ profileInfo }) {
   const [candidateFormData, setCandidateFormData] = useState(

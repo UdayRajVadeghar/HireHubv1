@@ -47,7 +47,7 @@ function Membership({ profileInfo }) {
   }
 
   async function updateProfile() {
-    const fetchCurrentPlanFromSessionStroage = JSON.parse(
+    const fetchCurrentPlanFromSessionStorage = JSON.parse(
       sessionStorage.getItem("currentPlan")
     );
 
@@ -55,16 +55,15 @@ function Membership({ profileInfo }) {
       {
         ...profileInfo,
         isPremiumUser: true,
-        memberShipType: fetchCurrentPlanFromSessionStroage?.type,
+        memberShipType: fetchCurrentPlanFromSessionStorage?.type,
         memberShipStartDate: new Date().toString(),
         memberShipEndDate: new Date(
           new Date().getFullYear() +
-            fetchCurrentPlanFromSessionStorage?.type ===
-          "basic"
-            ? 1
-            : fetchCurrentPlanFromSessionStroage?.plan === "teams"
-            ? 2
-            : 5,
+            (fetchCurrentPlanFromSessionStorage?.type === "basic"
+              ? 1
+              : fetchCurrentPlanFromSessionStorage?.plan === "teams"
+              ? 2
+              : 5),
           new Date().getMonth(),
           new Date().getDay()
         ),
@@ -82,7 +81,7 @@ function Membership({ profileInfo }) {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="flex items-baseline dark:border-white justify-between border-b pb-6 pt-24">
-        <h1 className="text-3xl font-serif dark:text-white tracking-tight text-gray-950">
+        <h1 className="text-3xl dark:text-white tracking-tight text-gray-950">
           {profileInfo?.isPremiumUser
             ? "You are a premium user"
             : "Choose Your Best Plan"}
@@ -103,9 +102,7 @@ function Membership({ profileInfo }) {
         <div className="container mx-auto p-0 space-y-8">
           <div className="">
             {membershipPlans.map((plan, index) => (
-              
               <CommonCard
-              
                 key={plan.type}
                 icon={
                   <div className="flex justify-between dark:text-black">
@@ -113,7 +110,6 @@ function Membership({ profileInfo }) {
                     src="https://utfs.io/f/67134cc3-f42f-4243-be46-c24460e51fc9-r5otpm.webp"
                     width={100}
                     />
-
                     <h1 className="font-bold text-2xl">{plan.heading}</h1>
                   </div>
                 }
@@ -141,31 +137,55 @@ function Membership({ profileInfo }) {
           </div>
         </div>
       </div>
-      <div>
-        <div className="text-3xl font-bold">
-        Membership Perks
+      <div className="mt-16">
+        <h2 className="text-3xl font-bold text-center mb-10">Membership Perks</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-lg">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <span role="img" aria-label="Job Application">📄</span>
+            </div>
+            <div>
+              <span className="font-bold">Apply to More Jobs:</span>
+              <p>Apply to more than two jobs simultaneously and maximize your chances of landing the perfect role.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <span role="img" aria-label="Job Match">🔍</span>
+            </div>
+            <div>
+              <span className="font-bold">Tailored Job Matches:</span>
+              <p>Receive personalized job recommendations based on your skills and preferences included in all the plans.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <span role="img" aria-label="Exclusive Jobs">🌟</span>
+            </div>
+            <div>
+              <span className="font-bold">Exclusive Job Listings:</span>
+              <p>Access job opportunities not available to the general public and have a higher chance to land a job with the Silver or Gold membership.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <span role="img" aria-label="Resources">📚</span>
+            </div>
+            <div>
+              <span className="font-bold">Career Development Resources:</span>
+              <p>Gain access to premium resources like resume builders, interview prep, and career coaching.</p>
+            </div>
+          </div>
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <span role="img" aria-label="Networking">🤝</span>
+            </div>
+            <div>
+              <span className="font-bold">Networking Opportunities:</span>
+              <p>Connect with industry professionals and potential employers within our exclusive community.</p>
+            </div>
+          </div>
         </div>
-        <ul className="mt-8 text-xl lg:flex lg:gap-12">
-        <li className="py-2 lg:py-0">
-          <span className="font-bold">Apply more than two jobs:</span> Connect with industry professionals and potential employers within our exclusive community.
-          </li>
-          <li className="py-2 lg:py-0">
-            <span className="font-bold">Tailored Job Matches for your profile:</span> Receive personalized job recommendations based on your skills and preferences included in <span className="font-bold">all the plans</span>.
-          </li>
-          <li className="py-2 lg:py-0">
-          <span className="font-bold">Exclusive Job Listings:</span>Access job opportunities not available to the general public and have a higher chance to land a job with the <span className="font-bold">Silver or Gold membership</span>.
-          </li>
-          <li className="py-2 lg:py-0">
-          <span className="font-bold">Career Development Resources:</span> Gain access to premium resources like resume builders, interview prep, and career coaching.
-          </li>
-          <li className="py-2 lg:py-0">
-          <span className="font-bold">Networking Opportunities:</span> Connect with industry professionals and potential employers within our exclusive community.
-          </li>
-          
-        </ul>
-
-
-        
       </div>
     </div>
   );

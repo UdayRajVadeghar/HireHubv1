@@ -1,6 +1,6 @@
 "use client";
 import { createProfileAction } from "@/actions";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   candidateOnboardFormControls,
   initialCandidateFormData,
@@ -8,7 +8,6 @@ import {
   recruiterOnboardFormControls,
 } from "@/utils";
 import { useUser } from "@clerk/nextjs";
-import { TabsContent } from "@radix-ui/react-tabs";
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import CommonForm from "../common-form";
@@ -101,19 +100,11 @@ function OnBoard() {
   console.log(candidateFormData);
 
   return (
-<<<<<<< HEAD
-    <div className="">
-      <Tabs value={currentTab} onValueChange={handleTabChange}>
-        <div className="w-full">
-          <div className="flex items-baseline justify-between border-b pb-6 pt-24">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-=======
     <div className="bg-white">
       <Tabs value={currentTab} onValueChange={handleTabChange}>
         <div className="w-full">
           <div className="flex items-baseline justify-between border-b pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
->>>>>>> origin/main
               Welcome to onboarding
             </h1>
             <TabsList>
@@ -132,12 +123,8 @@ function OnBoard() {
             handleFileChange={handleFileChange}
             isBtnDisabled={!handleCandidateFormValid()}
           />
-<<<<<<< HEAD
-          <p>*Fill in all the details , if it still doesnt work try uploading a different resume</p><br>
-          </br>
-          In the worst case join in as recruiter
-=======
->>>>>>> origin/main
+          <p>*Fill in all the details, if it still doesn't work, try uploading a different resume.</p>
+          <p>In the worst case, join in as a recruiter.</p>
         </TabsContent>
         <TabsContent value="recruiter">
           <CommonForm

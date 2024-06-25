@@ -103,7 +103,7 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
               </div>
             </div>
           </DrawerHeader>
-          <DrawerDescription className="text-2xl dark:text-white  font-medium text-black">
+          <DrawerDescription className="text-2xl  font-medium text-black dark:text-white">
             <span className="font-bold">Description: </span> 
             {jobItem?.description} <br></br>
             <span className="text-2xl dark:text-white  font-medium text-black">
@@ -112,25 +112,23 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
             </span>
           </DrawerDescription>
           <div className=" ">
-            <h2 className="text-2xl dark:text-black  text-black">
+            <h2 className="text-2xl dark:text-black  text-black dark:text-white ">
             <span className="font-bold">Job Type : </span> 
                {jobItem?.type}
             </h2>
           </div>
-          <h3 className="text-2xl font-medium text-black">
+          <h3 className="text-2xl font-medium text-black dark:text-white ">
           <span className="font-bold">Experience: </span> 
             {jobItem?.experience}
           </h3>
-          <h3 className="text-2xl font-medium text-black">
+          <h3 className="text-2xl font-medium text-black dark:text-white ">
           <span className="font-bold">Skills Required: </span> 
             {jobItem?.skills}
           </h3>
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 mt-6 dark:text-white">
             {jobItem?.skills.split(",").map((skillItem) => (
-              <div className="w-[100px] flex justify-center items-center h-[35px] dark:bg-white   rounded-[4px]">
-                <h2 className="text-[13px] font-medium text-white">
-                  {}
-                </h2>
+              <div>
+                
               </div>
             ))}
           </div>
