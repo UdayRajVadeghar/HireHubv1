@@ -1,8 +1,10 @@
-Here's the updated `README.md` for your HireHub app:
 
 ---
 
 # HireHub
+
+![image](https://github.com/UdayRajVadeghar/HireHubv1/assets/98938345/0c07bf0e-9787-43ea-9320-678abd08e475)
+
 
 Welcome to HireHub! This is a web application designed to bridge the gap between job seekers and recruiters, providing a seamless platform for applying to jobs and managing job applications. Whether you're a candidate looking for your next opportunity or a recruiter seeking the perfect fit for your team, HireHub has got you covered.
 
@@ -28,7 +30,7 @@ HireHub is a comprehensive job application platform where users can log in eithe
   - shadcn
 
 - **Backend:**
-  - Node.js
+  - Node.jsS
   - Next.js dynamic API routes
 
 - **Database:**
