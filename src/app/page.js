@@ -31,7 +31,7 @@ async function Home() {
                   <HomepageButtonControls
                     user={JSON.parse(JSON.stringify(user))}
                     profileInfo={profileInfo}
-                    //profile
+                  
                   />
                 </div>
                 

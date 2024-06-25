@@ -1,72 +1,55 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
 const SubscriptionCard = () => {
-
-  const [email , setEmail] = useState("");
-  const [valid , setValid] = useState(true)
+  const [email, setEmail] = useState("");
+  const [valid, setValid] = useState(true);
 
   const handleClick = (event) => {
-    
-    for(let i = 0 ; i < email.length; i++) {
-      if(email[i] === '@'){
-        setValid(true);
-        return
-      }
-    }
-    if(valid){
+    if (email.includes("@")) {
+      setValid(true);
+    } else {
       setValid(false);
-      return;
     }
-  }
+  };
 
   const handleChange = (event) => {
-
-    
     setEmail(event.target.value);
-
-  }
-
+  };
 
   return (
     <div>
       <div className='p-12 m-10 bg-black lg:flex justify-around rounded-xl'>
         <div>
-          <p className='text-white pt-5 text-3xl'>Subscribe to our monthly Newsletter</p>
+          <p className='text-white pt-5 text-3xl'>
+            Subscribe to our monthly Newsletter
+          </p>
         </div>
-        
-        <br></br>
+
         <div className='pt-4'>
-          <input 
-            type='text' 
+          <input
+            type='text'
             placeholder='Enter your Email'
             className='font-serif rounded-xl p-4'
-            value = {email}
-            onChange = {handleChange}
+            value={email}
+            onChange={handleChange}
+          />
+          <button
+            className='bg-white p-4 m-1 rounded-xl font-light'
+            onClick={handleClick}
           >
-          </input>
-          <button 
-<<<<<<< HEAD
-            className="bg-white p-4 m-1 rounded-xl font-light dark:text-black"
-=======
-            className="bg-white p-4 m-1 rounded-xl font-light "
->>>>>>> origin/main
-            onClick={handleClick}>
-              Subsribe
+            Subscribe
           </button>
-          {!valid && 
+          {!valid && (
             <div className="text-white">
               Please enter a Valid Email.
             </div>
-          }
+          )}
         </div>
-        
-      
-        
-      </div>   
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SubscriptionCard
+export default SubscriptionCard;
