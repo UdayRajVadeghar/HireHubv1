@@ -39,11 +39,7 @@ async function Home() {
             </section>
             <section className="relative w-full lg:w-[50%] flex items-center justify-end">
               <img
-<<<<<<< HEAD
                 src="https://utfs.io/f/2f0851c9-9181-47a1-a5fd-530b77818b31-malwq3.webp"
-=======
-                src="https://utfs.io/f/c3a4f4ad-9886-4310-9bfe-b6a785a70716-nd5t6.webp"
->>>>>>> origin/main
                 alt="Hero"
                 className="h-full w-full object-contain z-10 rounded-lg"
               />
