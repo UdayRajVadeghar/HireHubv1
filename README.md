@@ -29,44 +29,68 @@ HireHub is a comprehensive job application platform where users can log in eithe
 
 - **Backend:**
   - Node.js
-  - Next.js API routes
+  - Next.js dynamic API routes
 
 - **Database:**
   - PostgreSQL
 
 - **Services:**
-  - Supabase
-  - Uploadthing
-  - Vercel
-  - MongoDB
-  - Stripe
-  - Clerk
+  - Supabase(Storage , PostgreSQL)
+  - Uploadthing(Stroge for rendering)
+  - Vercel(Hosting)
+  - MongoDB(Database SP)
+  - Stripe(Payemnt Gateway)
+  - Clerk(Authentication)
 
 ## Features
 
-### For Candidates:
-1. **Authentication using Clerk:** Secure and seamless user authentication.
-2. **Register as a Candidate or Recruiter:** Tailored registration process for different user roles.
-3. **Profile Management:** Create and update your profile with personal and professional information.
-4. **Job Search and Application:** Search for jobs based on various filters and apply with a single click.
-5. **Application Tracking:** Keep track of your job applications and their statuses.
-6. **Feed Section:** Upload casual photos to the feed.
-7. **Like Button:** Interact with posts on the feed.
-8. **Premium Membership:** Access exclusive features with a premium membership.
-9. **Filters for Finding Jobs:** Advanced filtering options to find the perfect job.
-10. **Dark Mode:** Switch between light and dark modes for a comfortable viewing experience.
+- **Authentication using Clerk:**
+  - User can sign up for a new account.
+  - User can log in to their existing account.
+  - User can log out securely.
+  - Password reset functionality for forgotten passwords.
 
-### For Recruiters:
-1. **Authentication using Clerk:** Secure and seamless user authentication.
-2. **Register as a Recruiter:** Tailored registration process for recruiters.
-3. **Profile Management:** Create and update your recruiter profile.
-4. **Job Posting:** Create and manage job postings easily.
-5. **Application Review:** Review applications from candidates and update their statuses.
-6. **Feed Section:** Upload casual photos to the feed.
-7. **Like Button:** Interact with posts on the feed.
-8. **Premium Membership:** Access exclusive features with a premium membership.
-9. **Filters for Finding Candidates:** Advanced filtering options to find the perfect candidate.
-10. **Dark Mode:** Switch between light and dark modes for a comfortable viewing experience.
+- **Register as a Candidate or Recruiter:**
+  - Separate registration processes tailored for candidates and recruiters.
+  - Role-specific features and interfaces.
+
+- **Profile Management:**
+  - Create and update personal profiles with professional information.
+  - Manage contact information and resume details.
+
+- **Job Posting:**
+  - Recruiters can create new job postings.
+  - Edit and manage existing job postings.
+  - View a dashboard of all posted jobs.
+
+- **Job Search and Application:**
+  - Candidates can search for jobs using keywords and filters.
+  - Apply for jobs with a single click.
+
+- **Application Tracking:**
+  - Track the status of job applications (accepted, rejected).
+  - Receive notifications on application updates.
+
+- **Feed Section:**
+  - Upload casual photos and posts to a social feed.
+  - View posts from other users.
+
+- **Like Button:**
+  - Like and interact with posts on the feed.
+
+- **Premium Membership:**
+  - Access exclusive features like highlighted profiles and priority application reviews.
+  - Subscription management for upgrading to premium using Stripe.
+
+- **Filters for Finding Jobs:**
+  - Use advanced filters such as location, job type, salary range, and industry to find jobs.
+  - Save filter preferences for future searches.
+
+- **Dark Mode:**
+  - Toggle between light and dark themes for a comfortable viewing experience.
+  - Automatically adjust based on system settings.
+
+---
 
 ## Getting Started
 
