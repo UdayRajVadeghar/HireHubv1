@@ -159,4 +159,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Feel free to customize the sections as per your project's specific requirements.
