@@ -101,11 +101,19 @@ function OnBoard() {
   console.log(candidateFormData);
 
   return (
+<<<<<<< HEAD
     <div className="">
       <Tabs value={currentTab} onValueChange={handleTabChange}>
         <div className="w-full">
           <div className="flex items-baseline justify-between border-b pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+=======
+    <div className="bg-white">
+      <Tabs value={currentTab} onValueChange={handleTabChange}>
+        <div className="w-full">
+          <div className="flex items-baseline justify-between border-b pb-6 pt-24">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+>>>>>>> origin/main
               Welcome to onboarding
             </h1>
             <TabsList>
@@ -124,9 +132,12 @@ function OnBoard() {
             handleFileChange={handleFileChange}
             isBtnDisabled={!handleCandidateFormValid()}
           />
+<<<<<<< HEAD
           <p>*Fill in all the details , if it still doesnt work try uploading a different resume</p><br>
           </br>
           In the worst case join in as recruiter
+=======
+>>>>>>> origin/main
         </TabsContent>
         <TabsContent value="recruiter">
           <CommonForm

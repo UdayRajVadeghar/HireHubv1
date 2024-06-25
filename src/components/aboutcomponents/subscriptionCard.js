@@ -47,7 +47,11 @@ const SubscriptionCard = () => {
           >
           </input>
           <button 
+<<<<<<< HEAD
             className="bg-white p-4 m-1 rounded-xl font-light dark:text-black"
+=======
+            className="bg-white p-4 m-1 rounded-xl font-light "
+>>>>>>> origin/main
             onClick={handleClick}>
               Subsribe
           </button>
