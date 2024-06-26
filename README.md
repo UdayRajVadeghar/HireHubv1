@@ -31,7 +31,7 @@ HireHub is a comprehensive job application platform where users can log in eithe
   - Next.js dynamic API routes
 
 - **Database:**
-  - PostgreSQL
+  - NoSQL
 
 - **Services:**
   - Supabase(Storage , PostgreSQL)
