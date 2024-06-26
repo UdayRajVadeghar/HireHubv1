@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
 import { useEffect } from "react";
+import { Button } from "../ui/button";
 
 function HomepageButtonControls({ user, profileInfo }) {
   const router = useRouter();
@@ -15,7 +15,7 @@ function HomepageButtonControls({ user, profileInfo }) {
     <div className="flex space-x-4">
       <Button
         onClick={() => router.push("/jobs")}
-        className="flex h-11 items-center justify-center px-5"
+        className="flex h-11 items-center justify-center px-5 "
       >
         {user
           ? profileInfo?.role === "candidate"

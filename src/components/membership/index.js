@@ -88,7 +88,7 @@ function Membership({ profileInfo }) {
         </h1>
         <div>
           {profileInfo?.isPremiumUser ? (
-            <Button className="flex h-11 items-center justify-center px-5">
+            <Button className="flex h-11 items-center justify-center px-5 bg-blue-600">
               {
                 membershipPlans.find(
                   (planItem) => planItem.type === profileInfo?.memberShipType
@@ -108,7 +108,7 @@ function Membership({ profileInfo }) {
                   <div className="flex justify-between dark:text-black">
                     <img 
                     src="https://utfs.io/f/67134cc3-f42f-4243-be46-c24460e51fc9-r5otpm.webp"
-                    width={100}
+                    width={120}
                     />
                     <h1 className="font-bold text-2xl">{plan.heading}</h1>
                   </div>
