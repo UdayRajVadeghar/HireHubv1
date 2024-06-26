@@ -1,4 +1,5 @@
 import { fetchProfileAction } from "@/actions";
+import Footer from "@/components/homeComponents/footer";
 import HomepageButtonControls from "@/components/homepage-button-controls";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
@@ -50,6 +51,7 @@ async function Home() {
         </div>
         
       </section>
+      <Footer />
       
     </Fragment>
   );
