@@ -6,7 +6,7 @@ const About = () => {
       <div className="bg-gray-100 mt-20 mb-10 pt-10 pb-10">
         <div className="container mx-auto text-center px-6 lg:px-20">
           <h1 className="text-3xl font-bold text-gray-800 mb-6 font-sans">
-            About HireHub
+            About HireHub 
           </h1>
           <p className="text-xl text-gray-700 leading-relaxed font-serif">
             Welcome to <strong>HireHub</strong>, the leading platform that
