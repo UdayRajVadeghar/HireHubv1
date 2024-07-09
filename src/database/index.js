@@ -5,7 +5,7 @@ const connectToDB = async () => {
 
   mongoose
     .connect(connectionURL)
-    .then(() => console.log("jon board database connection is successfull"))
+    .then(() => console.log("HireHub database connection is successfull"))
     .catch((error) => console.log(error));
 };
 

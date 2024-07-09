@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "../ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
-import CommonForm from "../common-form";
-import { initialPostNewJobFormData, postNewJobFormControls } from "@/utils";
 import { postNewJobAction } from "@/actions";
 import { useToast } from "@/components/ui/use-toast";
-import Link from "next/link";
+import { initialPostNewJobFormData, postNewJobFormControls } from "@/utils";
+import { useState } from "react";
+import CommonForm from "../common-form";
+import { Button } from "../ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 
 function PostNewJob({ profileInfo, user, jobList }) {
   console.log(jobList, "jobList");
@@ -58,7 +57,7 @@ function PostNewJob({ profileInfo, user, jobList }) {
     <div>
       <Button
         onClick={handleAddNewJob}
-        className="disabled:opacity-60 flex h-11 items-center justify-center px-5"
+        className="disabled:opacity-60 flex h-11 bg-blue-500 items-center justify-center px-5"
       >
         Post A Job
       </Button>

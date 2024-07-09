@@ -5,7 +5,7 @@ import {
   DrawerContent,
   DrawerDescription,
   DrawerHeader,
-  DrawerTitle
+  DrawerTitle,
 } from "@/components/ui/drawer";
 import { Fragment, useState } from "react";
 
@@ -21,15 +21,13 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
 
   async function handlejobApply() {
     if (!profileInfo?.isPremiumUser && jobApplications.length >= 3) {
-      
       toast({
         variant: "destructive",
-        title: "You can apply max 2 jobs.",
+        title: "You can apply max 3 jobs.",
         description: "Please opt for membership to apply for more jobs",
       });
       return;
-    }
-    else{
+    } else {
       toast({
         variant: "",
         title: "Thank you for Applying.",
@@ -74,7 +72,8 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
           <DrawerHeader className="px-0">
             <div className="flex justify-between">
               <DrawerTitle className="text-4xl dark:text-white font-extralight text-gray-800">
-                <span className="font-bold">Role: </span>{jobItem?.title}
+                <span className="font-bold">Role: </span>
+                {jobItem?.title}
               </DrawerTitle>
               <div className="flex gap-3">
                 <Button
@@ -104,7 +103,7 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
             </div>
           </DrawerHeader>
           <DrawerDescription className="text-2xl  font-medium text-black dark:text-white">
-            <span className="font-bold">Description: </span> 
+            <span className="font-bold">Description: </span>
             {jobItem?.description} <br></br>
             <span className="text-2xl dark:text-white  font-medium text-black">
               <span className="font-bold">Location :</span>
@@ -112,24 +111,22 @@ function CandidateJobCard({ jobItem, profileInfo, jobApplications }) {
             </span>
           </DrawerDescription>
           <div className=" ">
-            <h2 className="text-2xl dark:text-black  text-black dark:text-white ">
-            <span className="font-bold">Job Type : </span> 
-               {jobItem?.type}
+            <h2 className="text-2xl text-black dark:text-white ">
+              <span className="font-bold">Job Type : </span>
+              {jobItem?.type}
             </h2>
           </div>
           <h3 className="text-2xl font-medium text-black dark:text-white ">
-          <span className="font-bold">Experience: </span> 
+            <span className="font-bold">Experience: </span>
             {jobItem?.experience}
           </h3>
           <h3 className="text-2xl font-medium text-black dark:text-white ">
-          <span className="font-bold">Skills Required: </span> 
+            <span className="font-bold">Skills Required: </span>
             {jobItem?.skills}
           </h3>
           <div className="flex gap-4 mt-6 dark:text-white">
             {jobItem?.skills.split(",").map((skillItem) => (
-              <div>
-                
-              </div>
+              <div></div>
             ))}
           </div>
         </DrawerContent>

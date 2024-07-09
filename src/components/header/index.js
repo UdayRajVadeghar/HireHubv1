@@ -1,6 +1,6 @@
 "use client";
 
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useClerk } from "@clerk/nextjs";
 import { AlignJustify, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -9,11 +9,9 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
 function Header({ user, profileInfo }) {
-  
+  const { signOut } = useClerk();
   const [activeLink, setActiveLink] = useState(null);
 
-
-  //should implement handleClick
   const handleClick = (path) => {
     sessionStorage.removeItem("filterParams");
     setActiveLink(path);
@@ -78,7 +76,7 @@ function Header({ user, profileInfo }) {
       <header className="flex h-16 w-full shrink-0 items-center">
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="lg:hidden">
+            <Button className="lg:hidden bg-black">
               <AlignJustify className="h-6 w-6" />
               <span className="sr-only">Toggle Navigation Menu</span>
             </Button>
@@ -99,18 +97,27 @@ function Header({ user, profileInfo }) {
                   </Link>
                 ) : null
               )}
-              <Moon
-                className="cursor-pointer mb-4"
-                fill={theme === "dark" ? "light" : "dark"}
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              />
-              <UserButton afterSignOutUrl="/" />
+              <div className="flex justify-between">
+                <Moon
+                  className="cursor-pointer mb-4"
+                  fill={theme === "dark" ? "light" : "dark"}
+                  onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                />
+                <div>Dark Mode/Light Mode</div>
+              </div>
+              {user && (
+                <Button
+                  onClick={() => signOut()}
+                  className="w-full mt-4 bg-red-500"
+                >
+                  Logout
+                </Button>
+              )}
             </div>
           </SheetContent>
         </Sheet>
-        
-        
-        <Link className="hidden  font-serif text-4xl lg:flex mr-6" href={"/"}>
+
+        <Link className="hidden font-serif text-4xl lg:flex mr-6" href={"/"}>
           HireHub
         </Link>
         <nav className="ml-auto hidden lg:flex gap-6 items-center">
@@ -118,10 +125,9 @@ function Header({ user, profileInfo }) {
             menuItem.show ? (
               <Link
                 href={menuItem.path}
-                onClick={() => sessionStorage.removeItem("filterParams")} 
-                className="group inline-flex h-9 w-max items-center rounded-md  px-4 py-2 text-m font-medium"
+                onClick={() => sessionStorage.removeItem("filterParams")}
+                className="group inline-flex h-9 w-max items-center rounded-md px-4 py-2 text-m font-medium"
                 key={menuItem.label}
-                
               >
                 {menuItem.label}
               </Link>
@@ -132,7 +138,7 @@ function Header({ user, profileInfo }) {
             fill={theme === "dark" ? "light" : "dark"}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           />
-          <UserButton afterSignOutUrl="/" />
+          <UserButton afterSignOutUrl="/" className="hidden lg:inline-flex" />
         </nav>
       </header>
     </div>

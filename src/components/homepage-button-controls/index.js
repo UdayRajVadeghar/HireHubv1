@@ -1,31 +1,42 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 
 function HomepageButtonControls({ user, profileInfo }) {
   const router = useRouter();
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     router.refresh();
   }, []);
 
+  function handleButtonClick(destination) {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+      router.push(destination);
+    }, 200);
+  }
+
   return (
     <div className="flex space-x-4">
       <Button
-        onClick={() => router.push("/jobs")}
-        className="flex h-11 items-center justify-center px-5 "
+        onClick={() => handleButtonClick("/jobs")}
+        className={`flex h-11 items-center justify-center bg-black px-5 transform transition-transform ${
+          isAnimating ? "scale-95" : ""
+        }`}
       >
         {user
           ? profileInfo?.role === "candidate"
             ? "Browse Jobs"
-            : "Jobs Dasboard"
+            : "Jobs Dashboard"
           : "Find Jobs"}
       </Button>
       <Button
         onClick={() =>
-          router.push(
+          handleButtonClick(
             user
               ? profileInfo?.role === "candidate"
                 ? "/activity"
@@ -33,7 +44,9 @@ function HomepageButtonControls({ user, profileInfo }) {
               : "/jobs"
           )
         }
-        className="flex h-11 items-center justify-center px-5"
+        className={`flex h-11 items-center bg-black justify-center px-5 transform transition-transform ${
+          isAnimating ? "scale-95" : ""
+        }`}
       >
         {user
           ? profileInfo?.role === "candidate"

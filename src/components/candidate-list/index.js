@@ -5,10 +5,9 @@ import {
   updateJobApplicationAction,
 } from "@/actions";
 import { createClient } from "@supabase/supabase-js";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
-
 
 const supabaseClient = createClient(
   "https://ateaxfooiijjqszouufm.supabase.co",
@@ -22,6 +21,8 @@ function CandidateList({
   showCurrentCandidateDetailsModal,
   setShowCurrentCandidateDetailsModal,
 }) {
+  const [isAnimating, setIsAnimating] = useState(false);
+
   async function handleFetchCandidateDetails(getCurrentCandidateId) {
     const data = await getCandidateDetailsByIDAction(getCurrentCandidateId);
 
@@ -31,7 +32,10 @@ function CandidateList({
     }
   }
 
-  console.log(currentCandidateDetails);
+  function handleButtonClick() {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 300); // Animation duration
+  }
 
   function handlePreviewResume() {
     const { data } = supabaseClient.storage
@@ -48,44 +52,45 @@ function CandidateList({
   }
 
   async function handleUpdateJobStatus(getCurrentStatus) {
+    handleButtonClick();
     let cpyJobApplicants = [...jobApplications];
     const indexOfCurrentJobApplicant = cpyJobApplicants.findIndex(
       (item) => item.candidateUserID === currentCandidateDetails?.userId
     );
     const jobApplicantsToUpdate = {
       ...cpyJobApplicants[indexOfCurrentJobApplicant],
-      status: cpyJobApplicants[indexOfCurrentJobApplicant].status.concat(
-        getCurrentStatus
-      ),
-      
+      status:
+        cpyJobApplicants[indexOfCurrentJobApplicant].status.concat(
+          getCurrentStatus
+        ),
     };
 
-    console.log(jobApplicantsToUpdate, "jobApplicantsToUpdate");
     await updateJobApplicationAction(jobApplicantsToUpdate, "/jobs");
   }
 
-  console.log(jobApplications);
-
   return (
     <Fragment>
-      <div className="grid grid-cols-1 gap-3 p-10 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid grid-cols-1 gap-3 p-10 md:grid-cols-2 lg:grid-cols-3">
         {jobApplications && jobApplications.length > 0
           ? jobApplications.map((jobApplicantItem) => (
               <div
                 key={jobApplicantItem?.candidateUserID}
-                className="bg-white shadow-lg w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4 bg-gray-2 00"
+                className="bg-white shadow-lg w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4 bg-gray-200"
               >
                 <div className="px-4 my-6 flex justify-between items-center">
                   <h3 className="text-lg font-bold dark:text-black">
                     {jobApplicantItem?.name}
                   </h3>
                   <Button
-                    onClick={() =>
+                    onClick={() => {
                       handleFetchCandidateDetails(
                         jobApplicantItem?.candidateUserID
-                      )
-                    }
-                    className="dark:bg-blue-300 flex h-11 items-center justify-center px-5"
+                      );
+                      handleButtonClick();
+                    }}
+                    className={`dark:bg-blue-300 flex bg-green-400 h-11 items-center justify-center px-5 transform transition-transform ${
+                      isAnimating ? "scale-95" : ""
+                    }`}
                   >
                     View Profile
                   </Button>
@@ -118,7 +123,7 @@ function CandidateList({
             <p className="text-lg font-bold dark:text-white text-black">
               Current Company:{" "}
               <span className="font-normal">
-                {currentCandidateDetails?.candidateInfo?.currentCompany},
+                {currentCandidateDetails?.candidateInfo?.currentCompany},{" "}
                 {currentCandidateDetails?.candidateInfo?.currentJobLocation}
               </span>
             </p>
@@ -141,19 +146,14 @@ function CandidateList({
               </span>
             </p>
             <div className="font-bold text-lg">Skill Set: </div>
-              <div className="border-2">
-                <div className="flex flex-wrap gap-4 ">
+            <div className="border-2">
+              <div className="flex flex-wrap gap-4">
                 {currentCandidateDetails?.candidateInfo?.skills
                   .split(",")
                   .map((skill) => (
-                    <div
-                      key={skill}
-                      className=""
-                    >
-                      <h2 className=" ">
-                        {skill},
-                      </h2>
-                </div>
+                    <div key={skill}>
+                      <h2>{skill},</h2>
+                    </div>
                   ))}
               </div>
             </div>
@@ -166,64 +166,64 @@ function CandidateList({
               View Resume
             </Button>
             <div className="flex pt-5 gap-3 justify-between">
-            <Button
-              onClick={() => handleUpdateJobStatus("selected")}
-              className="disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-green-500"
-              disabled={
-                jobApplications
+              <Button
+                onClick={() => handleUpdateJobStatus("selected")}
+                className={`disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-green-500 transform transition-transform ${
+                  isAnimating ? "scale-95" : ""
+                }`}
+                disabled={
+                  jobApplications
+                    .find(
+                      (item) =>
+                        item.candidateUserID === currentCandidateDetails?.userId
+                    )
+                    ?.status.includes("selected") ||
+                  jobApplications
+                    .find(
+                      (item) =>
+                        item.candidateUserID === currentCandidateDetails?.userId
+                    )
+                    ?.status.includes("rejected")
+                }
+              >
+                {jobApplications
                   .find(
                     (item) =>
                       item.candidateUserID === currentCandidateDetails?.userId
                   )
-                  ?.status.includes("selected") ||
-                jobApplications
+                  ?.status.includes("selected")
+                  ? "Selected"
+                  : "Select"}
+              </Button>
+              <Button
+                onClick={() => handleUpdateJobStatus("rejected")}
+                className={`disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-red-500 transform transition-transform ${
+                  isAnimating ? "scale-95" : ""
+                }`}
+                disabled={
+                  jobApplications
+                    .find(
+                      (item) =>
+                        item.candidateUserID === currentCandidateDetails?.userId
+                    )
+                    ?.status.includes("selected") ||
+                  jobApplications
+                    .find(
+                      (item) =>
+                        item.candidateUserID === currentCandidateDetails?.userId
+                    )
+                    ?.status.includes("rejected")
+                }
+              >
+                {jobApplications
                   .find(
                     (item) =>
                       item.candidateUserID === currentCandidateDetails?.userId
                   )
                   ?.status.includes("rejected")
-                  ? true
-                  : false
-              }
-            >
-              {jobApplications
-                .find(
-                  (item) =>
-                    item.candidateUserID === currentCandidateDetails?.userId
-                )
-                ?.status.includes("selected")
-                ? "Selected"
-                : "Select"}
-            </Button>
-            <Button
-              onClick={() => handleUpdateJobStatus("rejected")}
-              className="disabled:opacity-65 flex h-11 items-center justify-center px-5 bg-red-500"
-              disabled={
-                jobApplications
-                  .find(
-                    (item) =>
-                      item.candidateUserID === currentCandidateDetails?.userId
-                  )
-                  ?.status.includes("selected") ||
-                jobApplications
-                  .find(
-                    (item) =>
-                      item.candidateUserID === currentCandidateDetails?.userId
-                  )
-                  ?.status.includes("rejected")
-                  ? true
-                  : false
-              }
-            >
-              {jobApplications
-                .find(
-                  (item) =>
-                    item.candidateUserID === currentCandidateDetails?.userId
-                )
-                ?.status.includes("rejected")
-                ? "Rejected"
-                : "Reject"}
-            </Button>
+                  ? "Rejected"
+                  : "Reject"}
+              </Button>
             </div>
           </div>
         </DialogContent>

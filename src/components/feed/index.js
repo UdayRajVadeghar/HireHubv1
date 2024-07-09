@@ -100,9 +100,9 @@ function Feed({ user, profileInfo, allFeedPosts }) {
 
   return (
     <Fragment>
-      <div className="mx-auto max-w-7xl">
-        <div className="flex items-baseline justify-between dark:border-white border-b pb-6 pt-24">
-          <h1 className="dark:text-white text-4xl font-bold tracking-tight text-gray-900">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-baseline justify-between dark:border-white border-b pb-6 pt-24">
+          <h1 className="dark:text-white text-4xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-0">
             Explore the Feed
           </h1>
           <div className="flex items-center">
@@ -120,16 +120,17 @@ function Feed({ user, profileInfo, allFeedPosts }) {
               allFeedPosts.map((feedPostItem) => (
                 <div
                   key={feedPostItem._id}
-                  className="group relative -mx-4 p-6 rounded-3xl bg-gray-100 hover:bg-white hover:shadow-2xl cursor-auto shadow-2xl shadow-transparent gap-8 flex"
+                  className="group relative -mx-4 p-6 rounded-3xl bg-gray-100 hover:bg-white hover:shadow-2xl cursor-auto shadow-2xl shadow-transparent gap-8 flex flex-col lg:flex-row"
                 >
-                  <div className="sm:w-2/6 rounded-3xl overflow-hidden transition-all duration-500 group-hover:rounded-xl">
+                  <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden transition-all duration-500 group-hover:rounded-xl">
                     <img
                       src={feedPostItem?.image}
                       alt="Post"
-                      className="h-80 w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                      className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-top transition duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="sm:p-2 sm:pl-0 sm:w-4/6">
+
+                  <div className="sm:p-2 sm:pl-0 w-full lg:w-1/2">
                     <span className="mt-4 mb-2 inline-block font-medium text-gray-500 sm:mt-0">
                       {feedPostItem?.userName}
                     </span>
