@@ -18,6 +18,8 @@ function Companies({ jobsList }) {
     ),
   ];
 
+  //Should add the key for this
+
   function handleFilterJobsByCompanyName(getCompanyName) {
     sessionStorage.setItem(
       "filterParams",
@@ -54,7 +56,6 @@ function Companies({ jobsList }) {
                             handleFilterJobsByCompanyName(companyName)
                           }
                           className="bg-blue-600 h-11 flex items-center justify-center px-5 text-white"
-
                         >
                           See Jobs
                         </Button>

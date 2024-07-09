@@ -100,12 +100,12 @@ function OnBoard() {
   console.log(candidateFormData);
 
   return (
-    <div className="bg-white">
+    <div className="">
       <Tabs value={currentTab} onValueChange={handleTabChange}>
         <div className="w-full">
           <div className="flex items-baseline justify-between border-b pb-6 pt-24">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              Welcome to onboarding
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Welcome to onboarding!
             </h1>
             <TabsList>
               <TabsTrigger value="candidate">Candidate</TabsTrigger>
@@ -123,7 +123,10 @@ function OnBoard() {
             handleFileChange={handleFileChange}
             isBtnDisabled={!handleCandidateFormValid()}
           />
-          <p>*Fill in all the details, if it still doesn't work, try uploading a different resume.</p>
+          <p>
+            *Fill in all the details, if it still doesn't work, try uploading a
+            different resume.
+          </p>
           <p>In the worst case, join in as a recruiter.</p>
         </TabsContent>
         <TabsContent value="recruiter">

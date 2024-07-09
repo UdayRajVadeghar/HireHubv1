@@ -252,18 +252,18 @@ export function formUrlQuery({ params, dataToAdd }) {
 
 export const membershipPlans = [
   {
-    heading: "Bronze Tier",
-    price: 100,
+    heading: "Silver Tier",
+    price: 99,
     type: "basic",
   },
   {
-    heading: "Silver Tier",
-    price: 500,
+    heading: "Gold Tier",
+    price: 399,
     type: "teams",
   },
   {
-    heading: "Gold Tier",
-    price: 1050,
+    heading: "Diamond Tier",
+    price: 999,
     type: "enterprise",
   },
 ];

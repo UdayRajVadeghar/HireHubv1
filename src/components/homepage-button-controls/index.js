@@ -24,7 +24,7 @@ function HomepageButtonControls({ user, profileInfo }) {
     <div className="flex space-x-4">
       <Button
         onClick={() => handleButtonClick("/jobs")}
-        className={`flex h-11 items-center justify-center bg-black px-5 transform transition-transform ${
+        className={`flex h-11 items-center justify-center dark:bg-white bg-black px-5 transform transition-transform ${
           isAnimating ? "scale-95" : ""
         }`}
       >
@@ -44,7 +44,7 @@ function HomepageButtonControls({ user, profileInfo }) {
               : "/jobs"
           )
         }
-        className={`flex h-11 items-center bg-black justify-center px-5 transform transition-transform ${
+        className={`flex h-11 items-center dark:bg-white bg-black justify-center px-5 transform transition-transform ${
           isAnimating ? "scale-95" : ""
         }`}
       >

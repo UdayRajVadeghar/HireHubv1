@@ -74,18 +74,18 @@ function JobListing({
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl">
-        <div className="flex items-baseline dark:border-white justify-between border-b border-gray-200 pb-6 pt-24">
-          <h1 className="text-4xl dark:text-white font-bold tracking-tight text-gray-900">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-baseline justify-between border-b border-gray-200 pb-6 pt-6 sm:pt-24">
+          <h1 className="text-3xl sm:text-4xl dark:text-white font-bold tracking-tight text-gray-900 mb-4 sm:mb-0">
             {profileInfo?.role === "candidate"
               ? "Explore All Jobs"
               : "Job Dashboard"}
           </h1>
-          <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             {profileInfo?.role === "candidate" ? (
               <Menubar>
                 {filterMenus.map((filterMenu) => (
-                  <MenubarMenu>
+                  <MenubarMenu key={filterMenu.id}>
                     <MenubarTrigger>{filterMenu.name}</MenubarTrigger>
                     <MenubarContent>
                       {filterMenu.options.map((option, optionIdx) => (
@@ -129,15 +129,17 @@ function JobListing({
               <div className="container mx-auto p-0 space-y-8">
                 <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
                   {jobList && jobList.length > 0
-                    ? jobList.map((jobItem) =>
+                    ? jobList.map((jobItem, index) =>
                         profileInfo?.role === "candidate" ? (
                           <CandidateJobCard
+                            key={index}
                             profileInfo={profileInfo}
-                            jobItem={jobItem} 
+                            jobItem={jobItem}
                             jobApplications={jobApplications}
                           />
                         ) : (
                           <RecruiterJobCard
+                            key={index}
                             profileInfo={profileInfo}
                             jobItem={jobItem}
                             jobApplications={jobApplications}
