@@ -3,6 +3,7 @@
 ![image](https://github.com/UdayRajVadeghar/HireHubv1/assets/98938345/0c07bf0e-9787-43ea-9320-678abd08e475)
 
 
+
 Welcome to HireHub! This is a web application designed to bridge the gap between job seekers and recruiters, providing a seamless platform for applying to jobs and managing job applications. Whether you're a candidate looking for your next opportunity or a recruiter seeking the perfect fit for your team, HireHub has got you covered.
 
 ## Table of Contents
