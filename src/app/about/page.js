@@ -1,6 +1,15 @@
+"use client";
 import FeatureBox from "@/components/aboutcomponents/featureBox";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   return (
     <>
       <div className="bg-gray-100 mt-20 mb-10 pt-10 pb-10  rounded-lg ">
