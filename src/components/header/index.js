@@ -76,7 +76,7 @@ function Header({ user, profileInfo }) {
       <header className="flex h-16 w-full shrink-0 items-center">
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="lg:hidden bg-black">
+            <Button className="lg:hidden bg-white">
               <AlignJustify className="h-6 w-6" />
               <span className="sr-only">Toggle Navigation Menu</span>
             </Button>

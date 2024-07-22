@@ -5,7 +5,6 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Fragment } from "react";
 
-
 async function Home() {
   const user = await currentUser();
   const profileInfo = await fetchProfileAction(user?.id);
@@ -22,21 +21,19 @@ async function Home() {
                 <span className="flex space-x-2">
                   <span className="block w-14 mb-2 dark:border-white border-b-2 border-gray-700"></span>
                   <span className="font-medium dark:text-white text-gray-600">
-                   Your Essential Resource for Finding Jobs
+                    Your Essential Resource for Finding Jobs
                   </span>
                 </span>
                 <h1 className="text-3xl dark:text-white mt-5 lg:text-7xl text-black font-extrabold">
-                    Kickstart Your Ultimate Job Network Here.
+                  Kickstart Your Ultimate Job Network Here.
                 </h1>
-            
+
                 <div className="w-full mt-6 flex items-center text-white justify-start gap-2">
                   <HomepageButtonControls
                     user={JSON.parse(JSON.stringify(user))}
                     profileInfo={profileInfo}
-                  
                   />
                 </div>
-                
               </div>
             </section>
             <section className="relative w-full lg:w-[50%] flex items-center justify-end">
@@ -47,12 +44,9 @@ async function Home() {
               />
             </section>
           </div>
-          
         </div>
-        
       </section>
       <Footer />
-      
     </Fragment>
   );
 }
